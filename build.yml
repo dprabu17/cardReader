@@ -1,0 +1,26 @@
+---
+sdkversion: 3.4.2
+name: cardReader
+version: '1.0'
+vendor: rhomobile
+build: debug
+bbver: '4.6'
+applog: rholog.txt
+iphone:
+  configuration: Release
+  sdk: iphonesimulator5.0
+  provisionprofile: ''
+  codesignidentity: ''
+  entitlements: ''
+  BundleIdentifier: com.rhomobile.cardreader
+  BundleURLScheme: cardreader
+wp:
+  productid: 731b86c0-0ad3-0130-d4d9-70f1a1bddd12
+symbian:
+  uid: '0xe1b88992'
+android:
+  version: '2.3.3'
+extensions:
+- json
+- card_reader
+app_type: rhoelements

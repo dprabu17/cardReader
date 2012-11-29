@@ -1,0 +1,43 @@
+<META HTTP-Equiv="CardReader" Content="PINEntry:ON">
+<META HTTP-Equiv="CardReader" Content="PINTimeout:0x2710">
+<META HTTP-Equiv="CardReader" Content="ReadEvent:url('javascript:doTransaction('%s', '%s');')">
+<div data-role="page">
+  <div data-role="header" data-position="inline">
+    <h1>Card Reader using javascript</h1>
+    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      Home
+    </a>
+    <a href="<%= url_for :action => :new %>" class="ui-btn-right" data-icon="plus">
+      New
+    </a>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+      <a href="/app/Data/index" >Ruby Reader </a>
+      Card Reader details
+    </ul>
+  </div>
+
+</div>
+<script type="text/javascript" charset="utf-8" src="/public/js/swipe.js"></script>
+    <script language="javascript" type="text/javascript">
+        function doTransaction(data, mode)
+         {
+            switch(mode) {
+            case 'CR':
+                SwipeParser(data);
+                break;
+            case 'ENCDATA':
+                alert('Encoded data: '+data);
+                break;
+            case 'MESSAGE':
+                alert('Error: '+data);
+                break;
+            case 'PAN':
+                alert('PAN data: '+data);
+                alert('Please turn the unit over and enter the PIN');
+                break;
+            }
+          }
+      </script>      
